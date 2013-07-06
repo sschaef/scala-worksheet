@@ -119,14 +119,14 @@ class ScriptConfiguration(val pluginPreferenceStore: IPreferenceStore, textEdito
 
   private val scalaCodeScanner = new ScalaCodeScanner(scalaPreferenceStore, ScalaVersions.DEFAULT)
   private val singleLineCommentScanner = new SingleLineCommentScanner(scalaPreferenceStore, pluginPreferenceStore)
-  private val multiLineCommentScanner = new SingleTokenScanner(ScalaSyntaxClasses.MULTI_LINE_COMMENT, scalaPreferenceStore)
-  private val scaladocScanner = new SingleTokenScanner(ScalaSyntaxClasses.SCALADOC, scalaPreferenceStore)
-  private val stringScanner = new SingleTokenScanner(ScalaSyntaxClasses.STRING, scalaPreferenceStore)
-  private val multiLineStringScanner = new SingleTokenScanner(ScalaSyntaxClasses.MULTI_LINE_STRING, scalaPreferenceStore)
+  private val multiLineCommentScanner = new SingleTokenScanner(scalaPreferenceStore, ScalaSyntaxClasses.MULTI_LINE_COMMENT)
+  private val scaladocScanner = new SingleTokenScanner(scalaPreferenceStore, ScalaSyntaxClasses.SCALADOC)
+  private val stringScanner = new SingleTokenScanner(scalaPreferenceStore, ScalaSyntaxClasses.STRING)
+  private val multiLineStringScanner = new SingleTokenScanner(scalaPreferenceStore, ScalaSyntaxClasses.MULTI_LINE_STRING)
   private val xmlTagScanner = new XmlTagScanner(scalaPreferenceStore)
   private val xmlCommentScanner = new XmlCommentScanner(scalaPreferenceStore)
   private val xmlCDATAScanner = new XmlCDATAScanner(scalaPreferenceStore)
-  private val xmlPCDATAScanner = new SingleTokenScanner(ScalaSyntaxClasses.DEFAULT, scalaPreferenceStore)
+  private val xmlPCDATAScanner = new SingleTokenScanner(scalaPreferenceStore, ScalaSyntaxClasses.DEFAULT)
   private val xmlPIScanner = new XmlPIScanner(scalaPreferenceStore)
 
   override def getHyperlinkDetectors(sv: ISourceViewer): Array[IHyperlinkDetector] = {
